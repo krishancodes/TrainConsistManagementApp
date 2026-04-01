@@ -20,7 +20,7 @@ public class TrainConsistManagementApp {
         bogieIDs.add("BG101");
         bogieIDs.add("BG102");
         bogieIDs.add("BG103");
-        bogieIDs.add("BG101"); // duplicate
+        bogieIDs.add("BG101");
 
         System.out.println("\nUnique Bogie IDs:");
         System.out.println(bogieIDs);
@@ -36,16 +36,29 @@ public class TrainConsistManagementApp {
         System.out.println("\nTrain Consist (LinkedList):");
         System.out.println(trainConsist);
 
-        // UC5 - Preserve Insertion Order (LinkedHashSet)
+        // UC5 - LinkedHashSet (Ordered Unique Bogies)
         LinkedHashSet<String> trainFormation = new LinkedHashSet<>();
-
         trainFormation.add("Engine");
         trainFormation.add("Sleeper");
         trainFormation.add("Cargo");
         trainFormation.add("Guard");
-        trainFormation.add("Sleeper"); // duplicate
+        trainFormation.add("Sleeper");
 
         System.out.println("\nTrain Formation (LinkedHashSet):");
         System.out.println(trainFormation);
+
+        // UC6 - HashMap (Bogie → Capacity)
+        HashMap<String, Integer> bogieCapacity = new HashMap<>();
+
+        bogieCapacity.put("Sleeper", 72);
+        bogieCapacity.put("AC Chair", 60);
+        bogieCapacity.put("First Class", 30);
+        bogieCapacity.put("Cargo", 100);
+
+        System.out.println("\nBogie Capacity Mapping:");
+
+        for (Map.Entry<String, Integer> entry : bogieCapacity.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
     }
 }
